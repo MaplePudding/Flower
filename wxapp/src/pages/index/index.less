@@ -1,0 +1,130 @@
+#indexHeader{
+  position: relative;
+  height: 900px;
+
+  #indexPageTreeImg{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+
+  #indexPageBgdImg{
+    width: 100%;
+    height: 100%;
+  }
+
+  #indexPageBirdImg{
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    top: 90px;
+    right: 50px;
+    z-index: 1;
+  }
+
+  #indexPageFlowerImg{
+    position: absolute;
+    width: 450px;
+    height: 400px;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+  }
+
+  &>Input{
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translate(-50%);
+    background: #FFFFFF;
+    z-index: 3;
+  }
+
+  #indexStarImg{
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    bottom: -250px;
+    left: 100px;
+    z-index: 3;
+  }
+
+  #indexSealImg{
+    width: 75px;
+    height: 250px;
+    position: absolute;
+    right: 90px;
+    top: 300px;
+    z-index: 2;
+  }
+
+  #indexLycorisImg{
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    right: 60px;
+    top: 680px;
+    z-index: 3;
+  }
+}
+
+#indexSwiper{
+  height: 350px;
+
+
+  View{
+    height: 100%;
+
+    Image{
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+#indexNavigation{
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: #CCD6D5;
+
+  &>View{
+    width: 25%;
+    height: 100%;
+
+    &>Image{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+#indexPopularPost{
+  background: #CCD6D5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .indexPopularPostChild{
+    width: 50%;
+
+
+    .indexPopularPostItem{
+      width: 100%;
+      height: 400px;
+
+      Image{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+
