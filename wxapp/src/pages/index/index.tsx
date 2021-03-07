@@ -57,6 +57,9 @@ export default class Index extends Component {
             data: {
               code: res.code,
               appid: 'wx5d558374846339a8'
+            },
+            success: function (){
+
             }
           })
         }else{
@@ -111,7 +114,7 @@ export default class Index extends Component {
           <View id='indexPopularPostC' className='indexPopularPostChild'>
             <View className='indexPopularPostItem'>
               <Image src={indexItemBorder} />
-              <Video src='https://localhost:8080/test.mp4' />
+
             </View>
           </View>
           <View id='indexPopularPostV' className='indexPopularPostChild'>

@@ -3,7 +3,10 @@ export default {
     'pages/index/index',
     'pages/videoPage/videoPage',
     'pages/shopPage/shopPage',
-    'pages/dcsPage/dcsPage'
+    'pages/dcsPage/dcsPage',
+    'pages/shopPage/favoritePage/favoritePage',
+    'pages/shopPage/personalCenterPage/personalCenterPage',
+    'pages/shopPage/shopCartPage/shopCartPage'
   ],
   window: {
     backgroundTextStyle: 'light',
