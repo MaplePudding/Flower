@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import Taro from '@tarojs/taro'
 import {View, Image, Swiper, SwiperItem, Input, Video} from '@tarojs/components'
-import indexPageBgd from '../../img/index/indexPageBgd.png'
 import indexPageTree from '../../img/index/tree.png'
 import indexPageBird from '../../img/index/bird.png'
 import indexPageFlower from '../../img/index/flower.png'
@@ -73,13 +72,12 @@ export default class Index extends Component {
     return (
       <View id='indexWindow'>
         <View id='indexHeader'>
-          <Image id='indexPageBgdImg' src={indexPageBgd} />
-          <Image id='indexPageTreeImg'  src={indexPageTree} />
-          <Image id='indexPageBirdImg' src={indexPageBird} />
+          <Image id='indexPageTreeImg'  src={indexPageTree} className='tree' />
+          <Image id='indexPageBirdImg' src={indexPageBird} className='bird' />
           <Image id='indexPageFlowerImg' src={indexPageFlower} />
-          <Image id='indexStarImg' src={indexStarImg} />
-          <Image id='indexSealImg' src={sealImg} />
-          <Image id='indexLycorisImg' src={lycorisImg} onClick={() => {this.navigateToSearchPage()}} />
+          <Image id='indexStarImg' src={indexStarImg} className='star' />
+          <Image id='indexSealImg' src={sealImg} className='seal' />
+          <Image id='indexLycorisImg' src={lycorisImg} className='lycoris' onClick={() => {this.navigateToSearchPage()}} />
           <Input />
         </View>
         <Swiper id='indexSwiper' indicatorDots >

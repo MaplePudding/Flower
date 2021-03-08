@@ -1,0 +1,83 @@
+@import "../../global/global";
+#videoPage{
+  background: linear-gradient(to bottom, #75616D, #E6B1BA, #FFFFFF);
+
+  #videoPageHeader{
+    height: 800px;
+    position: relative;
+
+    #videoLatern{
+      width: 200px;
+      height: 400px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #videoConfig{
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 3;
+    }
+
+    #videoStar{
+      height: 500px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #videoSeal{
+      top: 100px;
+      right: 100px;
+    }
+
+    #videoLycoris{
+      top: 650px;
+      right: 100px;
+    }
+
+    #videoInput{
+      position: absolute;
+      top: 700px;
+      left: 100px;
+      width: 400px;
+      background: #FFFFFF;
+    }
+  }
+
+  #videoFilterBar{
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .videoFilterBarItem{
+      width: 20%;
+      height: 80%;
+
+      &>Image{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  #videoBottom{
+    height: 500px;
+    position: relative;
+
+    #videoBottomTree{
+      height: 100%;
+    }
+
+    #videoBottomBird{
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
