@@ -20,6 +20,14 @@
     top: 0;
   }
 
+  #pCText{
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #846F89;
+  }
+
   #pCInfo{
     height: 300px;
     display: flex;
@@ -31,14 +39,15 @@
     top: 50%;
     transform: translate(-50%, -50%);
 
-    &>Image{
+    #pCInfoAvatar{
       width: 200px;
       height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
     }
 
-    &>View{
-      color: #FFFFFF;
-      font-size: 40px;
+    #pCInfoNickName{
+
     }
   }
 }
@@ -96,6 +105,9 @@
     &>.pCListItem{
       width: 80%;
       height: 10%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       background: #42438B;
       color: #000000;
       opacity: 0.8;

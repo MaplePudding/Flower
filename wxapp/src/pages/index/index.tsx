@@ -1,17 +1,6 @@
 import React, {Component} from 'react'
 import Taro from '@tarojs/taro'
 import {View, Image, Swiper, SwiperItem, Input, Video} from '@tarojs/components'
-import indexPageTree from '../../img/index/tree.png'
-import indexPageBird from '../../img/index/bird.png'
-import indexPageFlower from '../../img/index/flower.png'
-import slidTestImg from '../../img/index/slidTestImg.png'
-import naviVideoImg from '../../img/index/naviVideo.jpg'
-import naviShopImg from '../../img/index/naviShop.jpg'
-import naviDcsImg from '../../img/index/naviDcs.jpg'
-import indexItemBorder from '../../img/index/indexItemBorder.png'
-import indexStarImg from '../../img/index/star.png'
-import lycorisImg from '../../img/index/lycorisImg.png'
-import sealImg from '../../img/index/sealImg.png'
 import './index.less'
 
 export default class Index extends Component {
@@ -20,9 +9,9 @@ export default class Index extends Component {
     super(props);
   }
 
-
   componentWillMount() {
-    this.getUserBaseInfo();
+    this.getUserOpenId();
+    this.getPopularVideo()
   }
 
   componentDidMount() {
@@ -47,7 +36,16 @@ export default class Index extends Component {
 
   }
 
-  getUserBaseInfo(){
+  async getUserInfo(){
+    await Taro.getUserInfo({
+      success: function(res){
+        console.log(res);
+      }
+    })
+  }
+
+
+  async getUserOpenId(){
     Taro.login({
       success: function (res){
         if(res.code){
@@ -57,8 +55,8 @@ export default class Index extends Component {
               code: res.code,
               appid: 'wx5d558374846339a8'
             },
-            success: function (){
-
+            success: function (resOpenID){
+              console.log(resOpenID);
             }
           })
         }else{
@@ -68,50 +66,59 @@ export default class Index extends Component {
     })
   }
 
+  getPopularVideo(){
+    Taro.request({
+      url: 'https://localhost:8080/popularVideo',
+      success: function (res){
+        console.log(res)
+      }
+    })
+  }
+
   render() {
     return (
       <View id='indexWindow'>
         <View id='indexHeader'>
-          <Image id='indexPageTreeImg'  src={indexPageTree} className='tree' />
-          <Image id='indexPageBirdImg' src={indexPageBird} className='bird' />
-          <Image id='indexPageFlowerImg' src={indexPageFlower} />
-          <Image id='indexStarImg' src={indexStarImg} className='star' />
-          <Image id='indexSealImg' src={sealImg} className='seal' />
-          <Image id='indexLycorisImg' src={lycorisImg} className='lycoris' onClick={() => {this.navigateToSearchPage()}} />
+          <Image id='indexPageTreeImg'  src='https://localhost:8080/img/index/tree.png' className='tree' />
+          <Image id='indexPageBirdImg' src='https://localhost:8080/img/index/bird.png' className='bird' />
+          <Image id='indexPageFlowerImg' src='https://localhost:8080/img/index/flower.png' />
+          <Image id='indexStarImg' src='https://localhost:8080/img/index/star.png' className='star' />
+          <Image id='indexSealImg' src='https://localhost:8080/img/index/sealImg.png' className='seal' />
+          <Image id='indexLycorisImg' src='https://localhost:8080/img/index/lycorisImg.png' className='lycoris' onClick={() => {this.navigateToSearchPage()}} />
           <Input />
         </View>
         <Swiper id='indexSwiper' indicatorDots >
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src={slidTestImg} />
+              <Image src='https://localhost:8080/img/index/slidTestImg.png' />
             </View>
           </SwiperItem>
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src={slidTestImg} />
+              <Image src='https://localhost:8080/img/index/slidTestImg.png' />
             </View>
           </SwiperItem>
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src={slidTestImg} />
+              <Image src='https://localhost:8080/img/index/slidTestImg.png' />
             </View>
           </SwiperItem>
         </Swiper>
         <View id='indexNavigation'>
           <View onClick={() => this.navigateToTargetPage("videoPage")}>
-            <Image src={naviVideoImg} onClick={() => this.navigateToTargetPage("videoPage")} />
+            <Image src='https://localhost:8080/img/index/naviVideo.jpg' onClick={() => this.navigateToTargetPage("videoPage")} />
           </View>
           <View>
-            <Image src={naviShopImg} onClick={() => this.navigateToTargetPage("shopPage")} />
+            <Image src='https://localhost:8080/img/index/naviShop.jpg' onClick={() => this.navigateToTargetPage("shopPage")} />
           </View>
           <View>
-            <Image src={naviDcsImg} onClick={() => this.navigateToTargetPage("dcsPage")} />
+            <Image src='https://localhost:8080/img/index/naviDcs.jpg' onClick={() => this.navigateToTargetPage("dcsPage")} />
           </View>
         </View>
         <View id='indexPopularPost'>
           <View id='indexPopularPostC' className='indexPopularPostChild'>
             <View className='indexPopularPostItem'>
-              <Image src={indexItemBorder} />
+              <Image src='https://localhost:8080/img/index/indexItemBorder.png' />
 
             </View>
           </View>

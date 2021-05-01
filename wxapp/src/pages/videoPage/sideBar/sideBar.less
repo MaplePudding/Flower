@@ -1,15 +1,78 @@
 #sideBar{
   height: 100vh;
   width: 400px;
-  background: #000000;
-  opacity: 0.5;
+  background: rgba(0,0,0,0.5);
   position: absolute;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   z-index: 2;
   transition: left 0.5s ease-in;
+
+  #sideBarHeader{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+
+    #sideBarAvatar{
+      width: 75%;
+      height: 60%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #000000;
+      opacity: 1;
+    }
+
+    #sideBarInfo{
+      width: 40%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      #sideBarNickName{
+        width: 100%;
+        height: 50%;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #sideBarID{
+        width: 100%;
+        height: 50%;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  #sideBarList{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &>View{
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      opacity: 0.5;
+      color: #FFFFFF;
+    }
+  }
 }
-.sideBar{
-}
+
 
 .sideBarExtend{
   left: 0;

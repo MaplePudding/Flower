@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import Taro from '@tarojs/taro'
 import {Image, View} from "@tarojs/components";
-import favoriteImg from '../../../img/index/shopPage/shopTabBar/favorite.png'
-import personalCenterImg from '../../../img/index/shopPage/shopTabBar/personal_center.png'
-import shopCartImg from '../../../img/index/shopPage/shopTabBar/shop_cart.png'
 import './shopNavigationBar.less'
 
 
@@ -26,13 +23,13 @@ const ShopNavigationBar:React.FunctionComponent = function (){
   return(
     <View className='shopNavigationBar'>
       <View onClick={() => {shopNavigate("favoritePage")}}>
-        <Image src={favoriteImg} />
+        <Image src='https://localhost:8080/img/index/shopPage/shopTabBar/favorite.png' />
       </View>
       <View onClick={() => {shopNavigate("shopCartPage")}}>
-        <Image src={shopCartImg} />
+        <Image src='https://localhost:8080/img/index/shopPage/shopTabBar/shop_cart.png' />
        </View>
       <View onClick={() => {shopNavigate("personalCenterPage")}}>
-        <Image src={personalCenterImg} />
+        <Image src='https://localhost:8080/img/index/shopPage/shopTabBar/personal_center.png' />
       </View>
     </View>
   )
