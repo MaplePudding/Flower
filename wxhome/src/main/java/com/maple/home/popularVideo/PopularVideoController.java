@@ -13,13 +13,11 @@ import java.util.List;
 public class PopularVideoController {
 
     @Autowired
-    private DataSource dataSource1;
-    @Autowired
-    private DataSource dataSource2;
+    PopularResourceManager popularResourceManager;
 
     @RequestMapping("/popularVideo")
     @ResponseBody
-    List<String> getAllPopularVideos(){
-        return PopularResourceManager.getPopularResource();
+    public String getAllPopularVideos(){
+        return popularResourceManager.getPopularResource();
     }
 }

@@ -1,34 +1,31 @@
-package com.maple.home.popularVideo;
-
+package com.maple.home.commodity;
 
 import com.maple.home.rsparser.ResultSetParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
-import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
 
 @Component
-public class PopularResourceManager {
+public class CommodityService {
 
     @Autowired
-    DataSource dataSource;
-    public String getPopularResource() {
+    private DataSource dataSource;
+
+    public String getAllCommodities(){
         try {
             Connection conn = dataSource.getConnection();
             Statement statement = conn.createStatement();
-            String sql = "select * from popular_video";
+            String sql = "select * from commodity";
             ResultSet rs = statement.executeQuery(sql);
             String jsonStr = ResultSetParser.resultSetToJson(rs);
             return jsonStr;
         } catch (SQLException throwables) {
-            System.out.println("get video error");
+            System.out.println("get commidity error");
         }
         return "[]";
     }

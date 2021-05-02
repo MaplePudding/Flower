@@ -10,8 +10,9 @@ export default class Index extends Component {
   }
 
   componentWillMount() {
-    this.getUserOpenId();
+    this.getUserOpenId()
     this.getPopularVideo()
+    this.getPopularItems()
   }
 
   componentDidMount() {
@@ -70,6 +71,15 @@ export default class Index extends Component {
     Taro.request({
       url: 'https://localhost:8080/popularVideo',
       success: function (res){
+        console.log(res)
+      }
+    })
+  }
+
+  getPopularItems(){
+    Taro.request({
+      url: 'https://localhost:8080/popularItem',
+      success: function (res) {
         console.log(res)
       }
     })
