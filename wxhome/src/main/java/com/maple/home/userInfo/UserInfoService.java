@@ -13,16 +13,18 @@ public class UserInfoService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired CheckUser checkUser;
+
     @RequestMapping("/userInfo")
     @ResponseBody
     public String getUserInfo(String code, String appid){
-        System.out.println(code);
-        System.out.println(appid);
         String appSecret = SecretManager.getAppSecret();
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid +
                 "&secret=" + appSecret + "&js_code=" + code +
                 "&grant_type=authorization_code";
         AuthEnty authEnty = restTemplate.getForObject(url, AuthEnty.class);
+        checkUser.checkUserInfo(authEnty.openid);
+
         return authEnty.openid;
     }
 

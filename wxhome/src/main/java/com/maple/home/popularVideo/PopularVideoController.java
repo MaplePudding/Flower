@@ -20,7 +20,6 @@ public class PopularVideoController {
     @RequestMapping("/popularVideo")
     @ResponseBody
     List<String> getAllPopularVideos(){
-        System.out.println(dataSource1);
         return PopularResourceManager.getPopularResource();
     }
 }
