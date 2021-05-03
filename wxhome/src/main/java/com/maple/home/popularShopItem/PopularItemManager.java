@@ -22,6 +22,7 @@ public class PopularItemManager {
             String sql = "select * from popular_item";
             ResultSet rs = statement.executeQuery(sql);
             String jsonStr = ResultSetParser.resultSetToJson(rs);
+            conn.close();
             return jsonStr;
         } catch (SQLException throwables) {
             System.out.println("get popularItem error");

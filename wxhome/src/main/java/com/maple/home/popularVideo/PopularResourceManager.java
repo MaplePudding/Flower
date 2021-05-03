@@ -26,6 +26,7 @@ public class PopularResourceManager {
             String sql = "select * from popular_video";
             ResultSet rs = statement.executeQuery(sql);
             String jsonStr = ResultSetParser.resultSetToJson(rs);
+            conn.close();
             return jsonStr;
         } catch (SQLException throwables) {
             System.out.println("get video error");

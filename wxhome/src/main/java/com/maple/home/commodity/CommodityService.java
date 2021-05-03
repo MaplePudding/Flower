@@ -23,6 +23,7 @@ public class CommodityService {
             String sql = "select * from commodity";
             ResultSet rs = statement.executeQuery(sql);
             String jsonStr = ResultSetParser.resultSetToJson(rs);
+            conn.close();
             return jsonStr;
         } catch (SQLException throwables) {
             System.out.println("get commidity error");

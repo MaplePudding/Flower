@@ -1,12 +1,29 @@
 import React, {Component} from 'react'
 import Taro from '@tarojs/taro'
-import {View, Image, Swiper, SwiperItem, Input, Video} from '@tarojs/components'
+import {View, Image, Swiper, SwiperItem, Input} from '@tarojs/components'
+import PopularVideoCmt from "./popularVideoComponent/popularVideoCmt";
+import PopularItemCmt from "./popularItemComponent/popularItemCmt"
 import './index.less'
 
-export default class Index extends Component {
+interface indexProps{
+
+}
+
+interface indexState{
+  popularVideoList: any
+  popularItemList: any
+  searchContent: string
+}
+
+export default class Index extends Component<indexProps, indexState> {
 
   constructor(props) {
     super(props);
+    this.state = {
+      popularVideoList: [],
+      popularItemList:[],
+      searchContent: ''
+    }
   }
 
   componentWillMount() {
@@ -33,8 +50,10 @@ export default class Index extends Component {
     })
   }
 
-  navigateToSearchPage(){
-
+  indexSearch(searchContent:string){
+    this.setState({
+      searchContent: searchContent
+    })
   }
 
   async getUserInfo(){
@@ -70,8 +89,10 @@ export default class Index extends Component {
   getPopularVideo(){
     Taro.request({
       url: 'https://localhost:8080/popularVideo',
-      success: function (res){
-        console.log(res)
+      success:  (res) =>{
+        this.setState({
+          popularVideoList: res.data
+        })
       }
     })
   }
@@ -79,10 +100,41 @@ export default class Index extends Component {
   getPopularItems(){
     Taro.request({
       url: 'https://localhost:8080/popularItem',
-      success: function (res) {
-        console.log(res)
+      success:  (res) => {
+        this.setState({
+            popularItemList: res.data
+          }
+        )
       }
     })
+  }
+
+  initialPopularVideoList(popularVideoArr){
+    if(popularVideoArr == false){
+      popularVideoArr = []
+    }
+    return(
+      <View id='indexPopularPostV' className='indexPopularPostChild'>
+        {popularVideoArr.map((value) =>{
+          if(value.popular_video_name.indexOf(this.state.searchContent) != -1) {
+            return PopularVideoCmt(value)
+          }
+        })}
+      </View>
+    )
+  }
+
+  initialPopularItemList(popularItemArr){
+    if(popularItemArr == false){
+      popularItemArr = []
+    }
+    return(
+      <View id='indexPopularPostV' className='indexPopularPostChild'>
+        {popularItemArr.map((value) =>{
+          return PopularItemCmt(value)
+        })}
+      </View>
+    )
   }
 
   render() {
@@ -94,8 +146,8 @@ export default class Index extends Component {
           <Image id='indexPageFlowerImg' src='https://localhost:8080/img/index/flower.png' />
           <Image id='indexStarImg' src='https://localhost:8080/img/index/star.png' className='star' />
           <Image id='indexSealImg' src='https://localhost:8080/img/index/sealImg.png' className='seal' />
-          <Image id='indexLycorisImg' src='https://localhost:8080/img/index/lycorisImg.png' className='lycoris' onClick={() => {this.navigateToSearchPage()}} />
-          <Input />
+          <Image id='indexLycorisImg' src='https://localhost:8080/img/index/lycorisImg.png' className='lycoris' onClick={() => {this.indexSearch(this.state.searchContent)}} />
+          <Input onInput={(event) =>{this.setState({searchContent: event.target.value})}} />
         </View>
         <Swiper id='indexSwiper' indicatorDots >
           <SwiperItem>
@@ -126,15 +178,8 @@ export default class Index extends Component {
           </View>
         </View>
         <View id='indexPopularPost'>
-          <View id='indexPopularPostC' className='indexPopularPostChild'>
-            <View className='indexPopularPostItem'>
-              <Image src='https://localhost:8080/img/index/indexItemBorder.png' />
-
-            </View>
-          </View>
-          <View id='indexPopularPostV' className='indexPopularPostChild'>
-
-          </View>
+            {this.initialPopularItemList(this.state.popularItemList)}
+            {this.initialPopularVideoList(this.state.popularVideoList)}
         </View>
       </View>
     )

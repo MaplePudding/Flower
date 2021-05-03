@@ -22,6 +22,7 @@ public class VideoService {
             String sql = "select * from video";
             ResultSet rs = statement.executeQuery(sql);
             String jsonStr = ResultSetParser.resultSetToJson(rs);
+            conn.close();
             return jsonStr;
         } catch (SQLException throwables) {
             System.out.println("get simple video error");
