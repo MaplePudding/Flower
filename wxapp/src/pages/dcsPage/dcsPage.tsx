@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Taro from '@tarojs/taro'
-import {View} from '@tarojs/components'
+import {Image, View} from '@tarojs/components'
+import errorImg from '../../img/404.jpg'
 import './dcsPage.less'
 
 export default class dcsCpt extends Component{
@@ -27,7 +28,7 @@ export default class dcsCpt extends Component{
   render(){
     return(
       <View id='dcsPageCpt'>
-        dcs Page
+        <Image src={errorImg} />
       </View>
     )
   }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Taro from '@tarojs/taro'
-import {View} from '@tarojs/components'
+import {Image, View} from '@tarojs/components'
+import errorImg from '../../../img/404.jpg'
 import './favoritePage.less'
 
 export default class shopCpt extends Component{
@@ -27,7 +27,7 @@ export default class shopCpt extends Component{
   render(){
     return(
       <View id='favoritePage'>
-        favorite Page
+        <Image src={errorImg} />
       </View>
     )
   }

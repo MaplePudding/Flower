@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Taro from '@tarojs/taro'
 import {Image, OpenData, View} from '@tarojs/components'
 import './personalCenterPage.less'
 

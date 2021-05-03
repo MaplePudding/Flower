@@ -1,15 +1,13 @@
-import React, {Component} from 'react'
-import Taro from '@tarojs/taro'
-import {Image, Input, OpenData, View} from '@tarojs/components'
+import React from 'react'
+import {OpenData, View} from '@tarojs/components'
 import './sideBar.less'
 
 interface SideBarProps{
-  sideBarStatus: string
+  sideBarStatus: boolean
 }
 
 const SideBar:React.FunctionComponent<SideBarProps> = function(props){
 
-  console.log(props)
   return(
     <View id='sideBar' className={props.sideBarStatus?'sideBarExtend sideBar':'sideBarShrink sideBar'}>
       <View id='sideBarHeader'>
@@ -19,9 +17,6 @@ const SideBar:React.FunctionComponent<SideBarProps> = function(props){
         <View id='sideBarInfo'>
           <View id='sideBarNickName'>
             <OpenData type='userNickName' />
-          </View>
-          <View id='sideBarID'>
-            ID
           </View>
         </View>
       </View>
