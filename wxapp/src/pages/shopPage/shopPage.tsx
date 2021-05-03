@@ -21,7 +21,7 @@ export default class shopCpt extends Component<shopProps, shopState>{
     this.state = {
       commodityList: [],
       searchContent: '',
-      type: ''
+      type: '',
     }
   }
 
@@ -86,6 +86,7 @@ export default class shopCpt extends Component<shopProps, shopState>{
     Taro.setStorageSync('cart', currentCart)
   }
 
+
   render(){
     return(
       <View id='shopPage'>
@@ -96,13 +97,13 @@ export default class shopCpt extends Component<shopProps, shopState>{
         <Image id='shopLycoris' src='https://localhost:8080/img/index/lycorisImg.png' className='lycoris' />
         <View id='shopFilterBar'>
           <View className='shopFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/shopPage/navi_cac.jpg' onClick={() =>{this.filteCommodityByType('cac')}} />
+            <Image src='https://localhost:8080/img/index/shopPage/navi_cac.png' onClick={() =>{this.filteCommodityByType('cac')}} />
           </View>
           <View className='shopFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/shopPage/navi_horticulture.jpg' onClick={() =>{this.filteCommodityByType('horticulture')}} />
+            <Image src='https://localhost:8080/img/index/shopPage/navi_horticulture.png' onClick={() =>{this.filteCommodityByType('horticulture')}} />
           </View>
           <View className='shopFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/shopPage/navi_makeup.jpg' onClick={() =>{this.filteCommodityByType('makeup')}} />
+            <Image src='https://localhost:8080/img/index/shopPage/navi_makeup.png' onClick={() =>{this.filteCommodityByType('makeup')}} />
           </View>
         </View>
         </View>

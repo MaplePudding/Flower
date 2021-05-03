@@ -23,7 +23,7 @@ const CartItemCmt:React.FunctionComponent<cartProps> = function (props){
           {props.commodityDescription}
         </View>
         <View className='cartItemPrice'>
-          {props.price}
+          ￥{props.price}
         </View>
       </View>
     </View>

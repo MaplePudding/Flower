@@ -3,11 +3,21 @@ import Taro from '@tarojs/taro'
 import {Button, ScrollView, View} from '@tarojs/components'
 import CartItemCmt from "./cartItemCmt/cartItemCmt";
 import './shopCartPage.less'
-import VideoItemCmt from "../../videoPage/videoItemComponent/videoItemCmt";
 
-export default class shopCpt extends Component{
+interface shopCartProps{
+
+}
+
+interface shopCartState{
+  timer: number
+}
+
+export default class shopCpt extends Component<shopCartProps, shopCartState>{
   constructor(props) {
     super(props)
+    this.state = {
+      timer: 0
+    }
   }
 
   componentWillMount() {
@@ -31,7 +41,7 @@ export default class shopCpt extends Component{
     const cartList = Taro.getStorageSync('cart')
 
     return(
-      <ScrollView id='shopCartContainer' scrollY>
+      <ScrollView id='shopCartContainer' scrollY scrollTop enableFlex>
         {
           cartList.map((value) =>{
             return CartItemCmt(value)
@@ -48,19 +58,25 @@ export default class shopCpt extends Component{
     }, 0)
   }
 
+  clear(){
+    Taro.setStorageSync('cart', [])
+    this.setState({timer: this.state.timer + 1})
+  }
+
   render(){
     return(
       <View id='shopCartPage'>
         <View id='shopCartHeader'>
           <View>购物车</View>
-          <Button>清空购物车</Button>
+          <Button onClick={() =>{this.clear()}}>清空购物车</Button>
         </View>
         {this.initialCartList()}
         <View id='shopCartBottom'>
           <View id='shopCartTotal'>
-            合计:${this.getTotal()}
+            合计:
+            <View>${this.getTotal()}</View>
           </View>
-          <Button id='shopCart'>
+          <Button id='Settlement'>
             结算
           </Button>
         </View>

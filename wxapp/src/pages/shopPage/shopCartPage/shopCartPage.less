@@ -1,21 +1,69 @@
 #shopCartPage{
   width: 100%;
   height: 1450px;
+  background: #EEF0F4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
   #shopCartHeader{
-    height: 50px;
+    width: 90%;
+    height: 90px;
     background: transparent;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    Button{
+      width: 25%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.6em;
+      margin: 0;
+    }
   }
 
   #shopCartContainer{
-    height: 1350px;
+    height: 1290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   #shopCartBottom{
-    height: 50px;
+    width: 100%;
+    height: 70px;
+    border-top: 1px solid gray;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    #shopCartTotal{
+      margin-left: 20px;
+
+      View{
+        display: inline;
+        color: #FF5000;
+      }
+    }
+
+    #Settlement{
+      height: 90%;
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0;
+      margin-right: 30px;
+      background: #FF5B00;
+      color: #FFFFFF;
+    }
   }
 }
