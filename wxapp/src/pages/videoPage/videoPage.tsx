@@ -28,7 +28,7 @@ export default class videoCpt extends Component<videoProps, videoState>{
   }
 
   componentWillMount() {
-    this.getVideo();
+    //this.getVideo();
   }
 
   componentDidMount() {
@@ -45,7 +45,7 @@ export default class videoCpt extends Component<videoProps, videoState>{
 
   getVideo(){
     Taro.request({
-      url: 'https://localhost:8080/video',
+      url: 'https://www.maplesyrup.top/video',
       success: (res) =>{
         this.setState({
           videoList: res.data
@@ -88,26 +88,26 @@ export default class videoCpt extends Component<videoProps, videoState>{
     return(
       <View id='videoPage'>
         <View id='videoPageHeader'>
-          <Image id='videoLatern' src='https://localhost:8080/img/index/videoPage/latern.png' />
-          <Image id='videoConfig' src='https://localhost:8080/img/index/videoPage/config.png' onClick={() =>{this.activeSideBar()}} />
-          <Image id='videoLycoris' src='https://localhost:8080/img/index/lycorisImg.png' className='lycoris' />
-          <Image id='videoSeal' src='https://localhost:8080/img/index/sealImg.png' className='seal' />
-          <Image id='videoStar' src='https://localhost:8080/img/index/star.png' className='star' />
+          <Image id='videoLatern' src='https://47.117.127.171/img/index/videoPage/latern.png' />
+          <Image id='videoConfig' src='https://47.117.127.171/img/index/videoPage/config.png' onClick={() =>{this.activeSideBar()}} />
+          <Image id='videoLycoris' src='https://ftp.bmp.ovh/imgs/2021/05/025443ba2ddd3a78.png' className='lycoris' />
+          <Image id='videoSeal' src='https://ftp.bmp.ovh/imgs/2021/05/cbec8789cb8bbca6.png' className='seal' />
+          <Image id='videoStar' src='https://ftp.bmp.ovh/imgs/2021/05/3b3c2934ac481d2c.png' className='star' />
           <Input id='videoInput' onInput={(event) =>{this.setState({currentType: ''}); this.setState({searchContent: event.target.value})}} />
           <SideBar sideBarStatus={this.state.sideBarStatus} />
         </View>
         <View id='videoFilterBar'>
           <View className='videoFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/videoPage/flower_culture.jpg' onClick={() =>{this.filtVideoByType('culture')}} />
+            <Image src='https://ftp.bmp.ovh/imgs/2021/05/b2b873056335a238.jpg' onClick={() =>{this.filtVideoByType('culture')}} />
           </View>
           <View className='videoFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/videoPage/flower_morphology.jpg' onClick={() =>{this.filtVideoByType('morphology')}} />
+            <Image src='https://ftp.bmp.ovh/imgs/2021/05/49aba96de20eb239.jpg' onClick={() =>{this.filtVideoByType('morphology')}} />
           </View>
         </View>
         {this.initialVideoList(this.state.videoList)}
         <View id='videoBottom'>
-          <Image id='videoBottomTree' src='https://localhost:8080/img/index/tree.png' className='tree' />
-          <Image id='videoBottomBird' src='https://localhost:8080/img/index/bird.png' className='bird' />
+          <Image id='videoBottomTree' src='https://ftp.bmp.ovh/imgs/2021/05/248ecc0f3b57c341.png' className='tree' />
+          <Image id='videoBottomBird' src='https://ftp.bmp.ovh/imgs/2021/05/55e8d2e01f17e3af.png' className='bird' />
         </View>
       </View>
     )

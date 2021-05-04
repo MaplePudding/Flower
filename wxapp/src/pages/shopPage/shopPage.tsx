@@ -26,7 +26,7 @@ export default class shopCpt extends Component<shopProps, shopState>{
   }
 
   componentWillMount() {
-    this.getCommodities();
+    //this.getCommodities();
   }
 
   componentDidMount() {
@@ -43,7 +43,7 @@ export default class shopCpt extends Component<shopProps, shopState>{
 
   getCommodities(){
     Taro.request({
-      url: 'https://localhost:8080/commodity',
+      url: 'https://maplesyrup.top/commodity',
       success: (res) =>{
         this.setState({
           commodityList: res.data
@@ -91,26 +91,26 @@ export default class shopCpt extends Component<shopProps, shopState>{
     return(
       <View id='shopPage'>
         <View id='shopPageHeader'>
-        <Image id='shopBird' src='https://localhost:8080/img/index/shopPage/shop_bird.png' />
-        <Image id='shopSeal' src='https://localhost:8080/img/index/sealImg.png' className='seal' />
+        <Image id='shopBird' src='https://47.117.127.171/img/index/shopPage/shop_bird.png' />
+        <Image id='shopSeal' src='https://ftp.bmp.ovh/imgs/2021/05/cbec8789cb8bbca6.png' className='seal' />
         <Input id='shopSearch' onInput={(event) =>{this.setState({type: '', searchContent: event.target.value})}} />
-        <Image id='shopLycoris' src='https://localhost:8080/img/index/lycorisImg.png' className='lycoris' />
+        <Image id='shopLycoris' src='https://ftp.bmp.ovh/imgs/2021/05/025443ba2ddd3a78.png' className='lycoris' />
         <View id='shopFilterBar'>
           <View className='shopFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/shopPage/navi_cac.png' onClick={() =>{this.filteCommodityByType('cac')}} />
+            <Image src='https://47.117.127.171/img/index/shopPage/navi_cac.png' onClick={() =>{this.filteCommodityByType('cac')}} />
           </View>
           <View className='shopFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/shopPage/navi_horticulture.png' onClick={() =>{this.filteCommodityByType('horticulture')}} />
+            <Image src='https://47.117.127.171/img/index/shopPage/navi_horticulture.png' onClick={() =>{this.filteCommodityByType('horticulture')}} />
           </View>
           <View className='shopFilterBarItem'>
-            <Image src='https://localhost:8080/img/index/shopPage/navi_makeup.png' onClick={() =>{this.filteCommodityByType('makeup')}} />
+            <Image src='https://47.117.127.171/img/index/shopPage/navi_makeup.png' onClick={() =>{this.filteCommodityByType('makeup')}} />
           </View>
         </View>
         </View>
         {this.initialCommodityList(this.state.commodityList, this.addToCart)}
         <View id='shopBottom'>
-          <Image id='shopBottomTree' src='https://localhost:8080/img/index/tree.png' className='tree' />
-          <Image id='shopBottomBird' src='https://localhost:8080/img/index/bird.png' className='bird' />
+          <Image id='shopBottomTree' src='https://ftp.bmp.ovh/imgs/2021/05/248ecc0f3b57c341.png' className='tree' />
+          <Image id='shopBottomBird' src='https://ftp.bmp.ovh/imgs/2021/05/55e8d2e01f17e3af.png' className='bird' />
         </View>
         <ShopTabBar />
       </View>

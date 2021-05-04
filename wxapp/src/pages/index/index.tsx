@@ -27,9 +27,11 @@ export default class Index extends Component<indexProps, indexState> {
   }
 
   componentWillMount() {
-    this.getUserOpenId()
-    this.getPopularVideo()
-    this.getPopularItems()
+    /**
+     *     this.getUserOpenId()
+     *     this.getPopularVideo()
+     *     this.getPopularItems()
+     * **/
   }
 
   componentDidMount() {
@@ -56,21 +58,13 @@ export default class Index extends Component<indexProps, indexState> {
     })
   }
 
-  async getUserInfo(){
-    await Taro.getUserInfo({
-      success: function(res){
-        console.log(res);
-      }
-    })
-  }
-
 
   async getUserOpenId(){
     Taro.login({
       success: function (res){
         if(res.code){
           Taro.request({
-            url: "https://localhost:8080/userInfo",
+            url: "https://www.maplesyrup.top/userInfo",
             data: {
               code: res.code,
               appid: 'wx5d558374846339a8'
@@ -78,34 +72,42 @@ export default class Index extends Component<indexProps, indexState> {
             success: function (resOpenID){
               console.log(resOpenID);
             }
-          })
+          }).catch((error) =>{console.log(error)})
         }else{
           console.log("Login Error");
         }
       }
+    }).catch((error) =>{
+      console.log(error)
     })
   }
 
   getPopularVideo(){
     Taro.request({
-      url: 'https://localhost:8080/popularVideo',
+      url: 'https://www.maplesyrup.top/popularVideo',
       success:  (res) =>{
         this.setState({
           popularVideoList: res.data
         })
+        console.log(res)
       }
+    }).catch((error) =>{
+      console.log(error)
     })
   }
 
   getPopularItems(){
     Taro.request({
-      url: 'https://localhost:8080/popularItem',
+      url: 'https://www.maplesyrup.top/popularItem',
       success:  (res) => {
         this.setState({
             popularItemList: res.data
           }
         )
+        console.log(res)
       }
+    }).catch((error) =>{
+      console.log(error)
     })
   }
 
@@ -141,40 +143,40 @@ export default class Index extends Component<indexProps, indexState> {
     return (
       <View id='indexWindow'>
         <View id='indexHeader'>
-          <Image id='indexPageTreeImg'  src='https://localhost:8080/img/index/tree.png' className='tree' />
-          <Image id='indexPageBirdImg' src='https://localhost:8080/img/index/bird.png' className='bird' />
-          <Image id='indexPageFlowerImg' src='https://localhost:8080/img/index/flower.png' />
-          <Image id='indexStarImg' src='https://localhost:8080/img/index/star.png' className='star' />
-          <Image id='indexSealImg' src='https://localhost:8080/img/index/sealImg.png' className='seal' />
-          <Image id='indexLycorisImg' src='https://localhost:8080/img/index/lycorisImg.png' className='lycoris' onClick={() => {this.indexSearch(this.state.searchContent)}} />
+          <Image id='indexPageTreeImg'  src='https://ftp.bmp.ovh/imgs/2021/05/248ecc0f3b57c341.png' className='tree' />
+          <Image id='indexPageBirdImg' src='https://ftp.bmp.ovh/imgs/2021/05/55e8d2e01f17e3af.png' className='bird' />
+          <Image id='indexPageFlowerImg' src='https://47.117.127.171/img/index/flower.png' />
+          <Image id='indexStarImg' src='https://ftp.bmp.ovh/imgs/2021/05/3b3c2934ac481d2c.png' className='star' />
+          <Image id='indexSealImg' src='https://ftp.bmp.ovh/imgs/2021/05/cbec8789cb8bbca6.png' className='seal' />
+          <Image id='indexLycorisImg' src='https://ftp.bmp.ovh/imgs/2021/05/025443ba2ddd3a78.png' className='lycoris' onClick={() => {this.indexSearch(this.state.searchContent)}} />
           <Input onInput={(event) =>{this.setState({searchContent: event.target.value})}} />
         </View>
         <Swiper id='indexSwiper' indicatorDots >
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src='https://localhost:8080/img/index/slidTestImg.png' />
+              <Image src='https://47.117.127.171/img/index/slidTestImg.png' />
             </View>
           </SwiperItem>
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src='https://localhost:8080/img/index/slidTestImg.png' />
+              <Image src='https://47.117.127.171/img/index/slidTestImg.png' />
             </View>
           </SwiperItem>
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src='https://localhost:8080/img/index/slidTestImg.png' />
+              <Image src='https://47.117.127.171/img/index/slidTestImg.png' />
             </View>
           </SwiperItem>
         </Swiper>
         <View id='indexNavigation'>
           <View onClick={() => this.navigateToTargetPage("videoPage")}>
-            <Image src='https://localhost:8080/img/index/naviVideo.jpg' onClick={() => this.navigateToTargetPage("videoPage")} />
+            <Image src='https://ftp.bmp.ovh/imgs/2021/05/888cb917a5cc3fb4.jpg' onClick={() => this.navigateToTargetPage("videoPage")} />
           </View>
           <View>
-            <Image src='https://localhost:8080/img/index/naviShop.jpg' onClick={() => this.navigateToTargetPage("shopPage")} />
+            <Image src='https://ftp.bmp.ovh/imgs/2021/05/8a944974fee119f1.jpg' onClick={() => this.navigateToTargetPage("shopPage")} />
           </View>
           <View>
-            <Image src='https://localhost:8080/img/index/naviDcs.jpg' onClick={() => this.navigateToTargetPage("dcsPage")} />
+            <Image src='https://ftp.bmp.ovh/imgs/2021/05/e842d12d03ee56b2.jpg' onClick={() => this.navigateToTargetPage("dcsPage")} />
           </View>
         </View>
         <View id='indexPopularPost'>

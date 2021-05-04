@@ -32,8 +32,8 @@ export default class shopCpt extends Component{
     return(
       <View id='personalCenterPage'>
         <View id='pCHeader'>
-          <Image id='pCOval' src='https://localhost:8080/img/index/shopPage/persontalCenterPage/oval.png' />
-          <Image id='pCLatern' src='https://localhost:8080/img/index/shopPage/persontalCenterPage/latern.png' />
+          <Image id='pCOval' src='https://47.117.127.171/img/index/shopPage/persontalCenterPage/oval.png' />
+          <Image id='pCLatern' src='https://47.117.127.171/img/index/shopPage/persontalCenterPage/latern.png' />
           <View id='pCText'>
             个人中心
           </View>
@@ -51,28 +51,28 @@ export default class shopCpt extends Component{
         </View>
       <View id='pCFunctionBar'>
         <View>
-          <Image src='https://localhost:8080/img/index/shopPage/persontalCenterPage/wallet.png' />
+          <Image src='https://47.117.127.171/img/index/shopPage/persontalCenterPage/wallet.png' />
           待付款
         </View>
         <View>
-          <Image src='https://localhost:8080/img/index/shopPage/persontalCenterPage/delivere.png' />
+          <Image src='https://47.117.127.171/img/index/shopPage/persontalCenterPage/delivere.png' />
           待发货
         </View>
         <View>
-          <Image src='https://localhost:8080/img/index/shopPage/persontalCenterPage/receipt.png' />
+          <Image src='https://47.117.127.171/img/index/shopPage/persontalCenterPage/receipt.png' />
           待收货
         </View>
         <View>
-          <Image src='https://localhost:8080/img/index/shopPage/persontalCenterPage/evaluation.png' />
+          <Image src='https://47.117.127.171/img/index/shopPage/persontalCenterPage/evaluation.png' />
           待评价
         </View>
         <View>
-          <Image src='https://localhost:8080/img/index/shopPage/persontalCenterPage/refund.png' />
+          <Image src='https://47.117.127.171/img/index/shopPage/persontalCenterPage/refund.png' />
           售后/退款
         </View>
       </View>
         <View id='pCListContainer'>
-          <Image src='https://localhost:8080/img/index/bird.png' className='bird' />
+          <Image src='https://ftp.bmp.ovh/imgs/2021/05/55e8d2e01f17e3af.png' className='bird' />
           <View id='pCList'>
             <View className='pCListItem'>
               历史记录

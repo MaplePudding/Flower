@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Taro from '@tarojs/taro'
 import {Image, View} from '@tarojs/components'
 import errorImg from '../../img/404.jpg'
 import './dcsPage.less'

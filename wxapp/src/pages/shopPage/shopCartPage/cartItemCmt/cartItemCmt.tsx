@@ -11,7 +11,7 @@ interface cartProps{
 
 const CartItemCmt:React.FunctionComponent<cartProps> = function (props){
 
-  const baseUrl = 'https://localhost:8080/shopItem/'
+  const baseUrl = 'https://www.maplesyrup.top:8080/shopItem/'
   return(
     <View className='cartItem'>
       <Image src={baseUrl + props.commoditySrc} />

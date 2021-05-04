@@ -41,7 +41,7 @@ export default class shopCpt extends Component<shopCartProps, shopCartState>{
     const cartList = Taro.getStorageSync('cart')
 
     return(
-      <ScrollView id='shopCartContainer' scrollY scrollTop enableFlex>
+      <ScrollView id='shopCartContainer' scrollY enableFlex>
         {
           cartList.map((value) =>{
             return CartItemCmt(value)
