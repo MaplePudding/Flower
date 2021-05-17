@@ -3,6 +3,7 @@ import Taro from '@tarojs/taro'
 import {View, Image, Swiper, SwiperItem, Input} from '@tarojs/components'
 import PopularVideoCmt from "./popularVideoComponent/popularVideoCmt";
 import PopularItemCmt from "./popularItemComponent/popularItemCmt"
+import solidTestImg from "../../img/slidTestImg.png"
 import './index.less'
 
 interface indexProps{
@@ -27,11 +28,11 @@ export default class Index extends Component<indexProps, indexState> {
   }
 
   componentWillMount() {
-    /**
-     *     this.getUserOpenId()
-     *     this.getPopularVideo()
-     *     this.getPopularItems()
-     * **/
+
+    this.getUserOpenId()
+    this.getPopularVideo()
+    this.getPopularItems()
+
   }
 
   componentDidMount() {
@@ -133,7 +134,9 @@ export default class Index extends Component<indexProps, indexState> {
     return(
       <View id='indexPopularPostV' className='indexPopularPostChild'>
         {popularItemArr.map((value) =>{
-          return PopularItemCmt(value)
+          if(value.popular_item_name.indexOf(this.state.searchContent) != -1) {
+            return PopularItemCmt(value)
+          }
         })}
       </View>
     )
@@ -145,7 +148,7 @@ export default class Index extends Component<indexProps, indexState> {
         <View id='indexHeader'>
           <Image id='indexPageTreeImg'  src='https://ftp.bmp.ovh/imgs/2021/05/248ecc0f3b57c341.png' className='tree' />
           <Image id='indexPageBirdImg' src='https://ftp.bmp.ovh/imgs/2021/05/55e8d2e01f17e3af.png' className='bird' />
-          <Image id='indexPageFlowerImg' src='https://47.117.127.171/img/index/flower.png' />
+          <Image id='indexPageFlowerImg' src='https://ftp.bmp.ovh/imgs/2021/05/b8bbe6c182700028.png' />
           <Image id='indexStarImg' src='https://ftp.bmp.ovh/imgs/2021/05/3b3c2934ac481d2c.png' className='star' />
           <Image id='indexSealImg' src='https://ftp.bmp.ovh/imgs/2021/05/cbec8789cb8bbca6.png' className='seal' />
           <Image id='indexLycorisImg' src='https://ftp.bmp.ovh/imgs/2021/05/025443ba2ddd3a78.png' className='lycoris' onClick={() => {this.indexSearch(this.state.searchContent)}} />
@@ -154,17 +157,17 @@ export default class Index extends Component<indexProps, indexState> {
         <Swiper id='indexSwiper' indicatorDots >
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src='https://47.117.127.171/img/index/slidTestImg.png' />
+              <Image src={solidTestImg} />
             </View>
           </SwiperItem>
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src='https://47.117.127.171/img/index/slidTestImg.png' />
+              <Image src={solidTestImg} />
             </View>
           </SwiperItem>
           <SwiperItem>
             <View className='indexSwiperItem'>
-              <Image src='https://47.117.127.171/img/index/slidTestImg.png' />
+              <Image src={solidTestImg} />
             </View>
           </SwiperItem>
         </Swiper>

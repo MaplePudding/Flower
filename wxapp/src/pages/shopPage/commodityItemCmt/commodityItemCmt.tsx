@@ -16,7 +16,7 @@ interface commodityItemProps{
 
 const CommodityItemCmt:React.FunctionComponent<commodityItemProps> = function(props){
 
-  const baseUrl:string = 'https://47.117.127.171/shopItem/'
+  const baseUrl:string = 'https://www.maplesyrup.top/shopItem/'
   return(
     <View className='commodityItem item'>
       <Image src={border} className='border CommodityItemBorder' />

@@ -14,7 +14,7 @@ interface videoItemCmtProps{
 
 const VideoItemCmt : React.FunctionComponent<videoItemCmtProps> = function(props){
 
-  const baseUrl : string = 'https://47.117.127.171/video/'
+  const baseUrl : string = 'https://www.maplesyrup.top/video/'
 
   return(
     <View className='item videoItemCmt'>

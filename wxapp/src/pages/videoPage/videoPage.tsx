@@ -28,7 +28,7 @@ export default class videoCpt extends Component<videoProps, videoState>{
   }
 
   componentWillMount() {
-    //this.getVideo();
+    this.getVideo();
   }
 
   componentDidMount() {
@@ -88,8 +88,8 @@ export default class videoCpt extends Component<videoProps, videoState>{
     return(
       <View id='videoPage'>
         <View id='videoPageHeader'>
-          <Image id='videoLatern' src='https://47.117.127.171/img/index/videoPage/latern.png' />
-          <Image id='videoConfig' src='https://47.117.127.171/img/index/videoPage/config.png' onClick={() =>{this.activeSideBar()}} />
+          <Image id='videoLatern' src='https://i.loli.net/2021/05/05/T3dLqCxPhkGJvDE.png' />
+          <Image id='videoConfig' src='https://i.loli.net/2021/05/05/lr9POwf6SocMDY1.png' onClick={() =>{this.activeSideBar()}} />
           <Image id='videoLycoris' src='https://ftp.bmp.ovh/imgs/2021/05/025443ba2ddd3a78.png' className='lycoris' />
           <Image id='videoSeal' src='https://ftp.bmp.ovh/imgs/2021/05/cbec8789cb8bbca6.png' className='seal' />
           <Image id='videoStar' src='https://ftp.bmp.ovh/imgs/2021/05/3b3c2934ac481d2c.png' className='star' />

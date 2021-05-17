@@ -52,7 +52,10 @@ export default class shopCpt extends Component<shopCartProps, shopCartState>{
   }
 
   getTotal(){
-    const cartList = Taro.getStorageSync('cart')
+    let cartList = Taro.getStorageSync('cart')
+    if(!Array.isArray(cartList)){
+      cartList = []
+    }
     return cartList.reduce((acc, item) =>{
       return acc + parseInt(item.price)
     }, 0)

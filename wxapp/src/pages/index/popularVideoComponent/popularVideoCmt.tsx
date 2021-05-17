@@ -13,7 +13,7 @@ interface popularVideoCmtProps{
 
 const PopularVideoCmt : React.FunctionComponent<popularVideoCmtProps> = function(props){
 
-  const urlBase:string = 'https://47.117.127.171/popularVideo/'
+  const urlBase:string = 'https://www.maplesyrup.top/popularVideo/'
 
   return(
     <View className='popularVideoItem item'>
